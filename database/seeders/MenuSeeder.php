@@ -14,15 +14,6 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-        // Hapus data sebelumnya
-        Menu::truncate();
-
-        // Pastikan kategori sudah ada
-        $categories = Category::count();
-        if ($categories == 0) {
-            $this->call(CategorySeeder::class);
-        }
-
         // Contoh data manual
         $menus = [
             // Makanan Pembuka

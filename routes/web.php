@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,9 +16,8 @@ Route::post('/payment', [PaymentController::class, 'charge']);
 
 // Route untuk Menu
 Route::prefix('menus')->group(function () {
-    Route::get('/', [MenuController::class, 'index']);
     Route::post('/', [MenuController::class, 'store']);
-    Route::get('/{menu}', [MenuController::class, 'show']);
+    Route::get('/', [MenuController::class, 'show']);
     Route::put('/{menu}', [MenuController::class, 'update']);
     Route::delete('/{menu}', [MenuController::class, 'destroy']);
     

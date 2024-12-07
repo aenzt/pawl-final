@@ -47,9 +47,10 @@ class MenuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(menu $menu)
+    public function show()
     {
-        //
+        $menus = menu::with('reviews')->paginate(10);
+        return response()->json($menus);
     }
 
     /**

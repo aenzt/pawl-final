@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\review;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class menu extends Model
 {
@@ -32,5 +33,11 @@ class menu extends Model
     public function scopeByCategory($query, $categoryId)
     {
         return $query->where('category_id', $categoryId);
+    }
+
+    // Relasi satu kategori bisa memiliki banyak menu
+    public function reviews()
+    {
+        return $this->hasMany(review::class);
     }
 }
